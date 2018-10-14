@@ -19,6 +19,7 @@ end
     if params[:artist_id]
     else
       redirect_to songs_path
+    end
   end
 
   def new
