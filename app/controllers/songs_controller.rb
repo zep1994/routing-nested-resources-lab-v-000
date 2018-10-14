@@ -1,16 +1,17 @@
 class SongsController < ApplicationController
-  if params[:artist_id]
-        # artist_id comes from the nested route
-        # Rails takes the parent resource's name and appends _id to it
-        @songs = Artist.find(params[:artist_id]).songs
-      else
-        # accessing the index of all songs
-        @songs = Song.all
-      end
-     rescue ActiveRecord::RecordNotFound
-      flash[:alert] = "Artist not found"
-      redirect_to artists_path
+  def index
+    if params[:artist_id]
+      # artist_id comes from the nested route
+      # Rails takes the parent resource's name and appends _id to it
+      @songs = Artist.find(params[:artist_id]).songs
+    else
+      # accessing the index of all songs
+      @songs = Song.all
     end
+   rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "Artist not found"
+    redirect_to artists_path
+  end
 
   def show
     @song = Song.find(params[:id])
