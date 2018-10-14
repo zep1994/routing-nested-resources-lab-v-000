@@ -6,6 +6,9 @@ class SongsController < ApplicationController
       @songs = Song.all
   end
 
+rescue ActiveRecord::RecordNotFound
+  flash[:alert] = "Artist not found"
+
   def show
     @song = Song.find(params[:id])
   end
