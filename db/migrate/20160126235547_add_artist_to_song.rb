@@ -1,4 +1,4 @@
-class AddArtistToSong < ActiveRecord::Migration[5.1]
+class AddArtistToSong < ActiveRecord::Migration
   def change
     add_reference :songs, :artist, index: true, foreign_key: true
   end
