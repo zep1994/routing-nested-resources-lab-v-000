@@ -5,6 +5,8 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "Artist not found"
   end
 
   def new
