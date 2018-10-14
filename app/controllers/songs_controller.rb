@@ -8,6 +8,7 @@ class SongsController < ApplicationController
       # accessing the index of all songs
       @songs = Song.all
     end
+    
    rescue ActiveRecord::RecordNotFound
     flash[:alert] = "Artist not found"
     redirect_to artists_path
