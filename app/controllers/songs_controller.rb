@@ -8,6 +8,7 @@ class SongsController < ApplicationController
 
 rescue ActiveRecord::RecordNotFound
   flash[:alert] = "Artist not found"
+  redirect_to artist_path
 end
 
   def show
